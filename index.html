@@ -441,11 +441,564 @@
         .footer-bottom { border-top:1px solid var(--border-color); padding-top:16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
         .footer-bottom p { color:var(--footer-text); font-size:12px; }
         .gold-txt { color:var(--brand-gold); }
-        @media (min-width:769px) { .footer { display:block; } }
+       /* =========================================================
+   MOBILE FIRST — KOKI'S BY JUJU
+   ========================================================= */
 
-        /* BOTTOM NAV */
-        .bottom-nav { display:flex; justify-content:space-around; align-items:stretch; position:fixed; bottom:0; left:0; right:0; height:calc(60px + env(safe-area-inset-bottom, 0px)); padding-bottom:env(safe-area-inset-bottom, 0px); background:var(--nav-bg); backdrop-filter:blur(30px); border-top:1px solid var(--border-color); z-index:250; display:none; box-shadow:0 -4px 12px rgba(0,0,0,0.05); }
-        @media (max-width:768px) { .bottom-nav { display:flex; } .bottom-nav-item { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--nav-text-muted); font-size:10px; font-weight:500; transition:color .3s; cursor:pointer; min-height:60px; } .bottom-nav-item i { font-size:20px; margin-bottom:2px; } .bottom-nav-item.active { color:var(--brand-gold); } .bottom-nav-item.active i { color:var(--brand-gold); } .bottom-nav-item .cart-dot { position:absolute; top:4px; right:4px; background:var(--brand-gold); color:#000; font-size:8px; width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; } .bottom-nav-item .cart-dot.hidden { display:none; } }
+/* ---------- RESET RESPONSIVE ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+img,
+video,
+svg,
+canvas {
+    display: block;
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+    max-width: 100%;
+    font: inherit;
+}
+
+
+/* =========================================================
+   CONTENEURS
+   ========================================================= */
+
+.container,
+.section-container,
+.page-container {
+    width: min(100% - 32px, 1200px);
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   NAVBAR — MOBILE
+   ========================================================= */
+
+.navbar {
+    width: 100%;
+    max-width: 100%;
+}
+
+.nav-links {
+    display: none;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-actions .icon-btn,
+.nav-actions button {
+    flex-shrink: 0;
+}
+
+.mobile-menu-btn,
+.menu-toggle,
+.hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   HERO — MOBILE
+   ========================================================= */
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 100%;
+}
+
+.hero-title,
+.hero h1 {
+    font-size: clamp(2rem, 9vw, 4.5rem);
+    line-height: 1.05;
+    overflow-wrap: break-word;
+}
+
+.hero-description,
+.hero p {
+    max-width: 100%;
+    font-size: clamp(.95rem, 3.8vw, 1.15rem);
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+}
+
+.hero-buttons a,
+.hero-buttons button {
+    width: 100%;
+    min-height: 48px;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.feature-card {
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   PRODUITS
+   ========================================================= */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.product-card {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.product-card-content {
+    min-width: 0;
+}
+
+.product-card h2,
+.product-card h3,
+.product-card p {
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   PANIER
+   ========================================================= */
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.cart,
+.cart-summary {
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   ÉVÉNEMENTS
+   ========================================================= */
+
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.event-card {
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   KPI
+   ========================================================= */
+
+.kpis {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.kpi {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   FORMULAIRES
+   ========================================================= */
+
+form {
+    width: 100%;
+    max-width: 100%;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+
+/* =========================================================
+   BOUTONS
+   ========================================================= */
+
+button,
+.btn,
+a.btn {
+    max-width: 100%;
+    min-height: 44px;
+}
+
+.btn-group,
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast-wrap {
+    position: fixed;
+    right: 16px;
+    left: 16px;
+    top: 12px;
+    width: auto;
+    max-width: none;
+    z-index: 5600;
+}
+
+.toast {
+    width: min(100%, 420px);
+    margin-left: auto;
+    overflow-wrap: anywhere;
+}
+
+.notification-permission {
+    width: min(320px, calc(100vw - 32px));
+    max-width: calc(100vw - 32px);
+}
+
+
+/* =========================================================
+   TABLEAUX
+   ========================================================= */
+
+.table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    min-width: 600px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer-grid,
+footer .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+
+footer {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   MODALES
+   ========================================================= */
+
+.modal,
+.modal-content,
+.dialog {
+    max-width: calc(100vw - 32px);
+}
+
+.modal-content {
+    width: 100%;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   PETITS ÉCRANS — 360px
+   ========================================================= */
+
+@media (max-width: 359px) {
+
+    .container,
+    .section-container,
+    .page-container {
+        width: calc(100% - 24px);
+    }
+
+    .kpis {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title,
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .nav-actions {
+        gap: 4px;
+    }
+}
+
+
+/* =========================================================
+   TABLETTE — 768px+
+   ========================================================= */
+
+@media (min-width: 768px) {
+
+    .container,
+    .section-container,
+    .page-container {
+        width: min(100% - 48px, 1200px);
+    }
+
+    /* Navigation */
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-menu-btn,
+    .menu-toggle,
+    .hamburger {
+        display: none;
+    }
+
+    /* Hero */
+
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        text-align: left;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        width: auto;
+    }
+
+    .hero-buttons a,
+    .hero-buttons button {
+        width: auto;
+    }
+
+    /* Features */
+
+    .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Produits */
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Panier */
+
+    .cart-layout {
+        grid-template-columns: minmax(0, 1fr) 340px;
+    }
+
+    /* Events */
+
+    .events-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* KPI */
+
+    .kpis {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    /* Formulaires */
+
+    .form-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Footer */
+
+    .footer-grid,
+    footer .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   DESKTOP — 1024px+
+   ========================================================= */
+
+@media (min-width: 1024px) {
+
+    .container,
+    .section-container,
+    .page-container {
+        width: min(100% - 64px, 1200px);
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .events-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cart-layout {
+        grid-template-columns: minmax(0, 1fr) 340px;
+    }
+
+    .footer-grid,
+    footer .grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   GRAND ÉCRAN — 1440px+
+   ========================================================= */
+
+@media (min-width: 1440px) {
+
+    .container,
+    .section-container,
+    .page-container {
+        width: min(100% - 80px, 1280px);
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITÉ / TOUCH
+   ========================================================= */
+
+@media (pointer: coarse) {
+
+    button,
+    .btn,
+    a.btn,
+    input,
+    select {
+        min-height: 44px;
+    }
+}
+
+
+/* =========================================================
+   PRÉVENTION DES TEXTES QUI DÉBORDENT
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
 
         /* LIGHTBOX & TOAST */
         .lightbox { position:fixed; inset:0; background:var(--modal-overlay); display:none; place-items:center; z-index:500; }
