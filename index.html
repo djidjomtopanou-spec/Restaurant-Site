@@ -756,6 +756,17 @@
         .admin-overlay { position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:999; display:none; }
         .admin-overlay.show { display:block; }
 
+/* =========================================================
+   KOKI'S BY JUJU
+   RESPONSIVE SYSTEM — CLEAN & FIXED
+   320px → Desktop
+   ========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL MOBILE SAFETY
+   ========================================================= */
+
 @media (max-width: 768px) {
 
     html {
@@ -785,6 +796,8 @@
     video,
     iframe {
         max-width: 100%;
+        height: auto;
+        display: block;
     }
 
     button,
@@ -805,6 +818,9 @@
     }
 
 
+    /* =====================================================
+       CONTAINER
+       ===================================================== */
 
     .container {
         width: 100%;
@@ -816,6 +832,9 @@
     }
 
 
+    /* =====================================================
+       TYPOGRAPHY
+       ===================================================== */
 
     .hero-title {
         font-size: clamp(32px, 9vw, 48px);
@@ -836,6 +855,10 @@
     }
 
 
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
+
     .navbar {
         width: 100%;
         max-width: 100%;
@@ -848,6 +871,10 @@
         max-width: 100%;
         padding-left: 14px;
         padding-right: 14px;
+        height: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .nav-logo img,
@@ -856,6 +883,78 @@
         height: auto;
     }
 
+    /* Masquer les liens desktop */
+    .nav-links,
+    .navbar-links,
+    .desktop-nav {
+        display: none !important;
+    }
+
+    /* Afficher le hamburger */
+    .nav-toggle,
+    .hamburger,
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 28px;
+        height: 28px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .nav-toggle span,
+    .hamburger span,
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    /* Menu mobile ouvert (ajoute .open via JS) */
+    .nav-links.open,
+    .navbar-links.open,
+    .mobile-nav.open {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 62px;
+        left: 0;
+        right: 0;
+        background: #0a0a0a;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 16px 14px 24px;
+        gap: 4px;
+        z-index: 999;
+    }
+
+    .nav-links.open a,
+    .navbar-links.open a,
+    .mobile-nav.open a {
+        display: block;
+        padding: 13px 12px;
+        font-size: 16px;
+        border-radius: 10px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .nav-links.open a:hover,
+    .navbar-links.open a:hover {
+        background: rgba(212, 175, 55, 0.12);
+        color: #d4af37;
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
 
     .hero {
         width: 100%;
@@ -881,7 +980,6 @@
     .hero-image-frame img {
         width: 100%;
         height: 100%;
-        display: block;
         object-fit: cover;
     }
 
@@ -899,8 +997,6 @@
         font-size: clamp(20px, 6vw, 28px);
     }
 
-
-
     .hero-actions {
         display: flex;
         flex-wrap: wrap;
@@ -913,6 +1009,9 @@
     }
 
 
+    /* =====================================================
+       GRILLES
+       ===================================================== */
 
     .admin-layout {
         grid-template-columns: 1fr !important;
@@ -924,7 +1023,19 @@
         grid-template-columns: 1fr !important;
     }
 
+    /* Plats vedettes → 1 colonne sur petits écrans */
+    .plats-grid,
+    .signatures-grid,
+    .vedettes-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+    }
 
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
 
     .plat-card,
     .feature-card,
@@ -944,10 +1055,13 @@
     .plat-img img {
         width: 100%;
         height: 100%;
-        display: block;
         object-fit: cover;
     }
 
+
+    /* =====================================================
+       EVENTS
+       ===================================================== */
 
     .ev-card {
         grid-template-columns: 1fr !important;
@@ -972,6 +1086,10 @@
     }
 
 
+    /* =====================================================
+       FORMULAIRES
+       ===================================================== */
+
     .form-row {
         grid-template-columns: 1fr !important;
         gap: 12px;
@@ -990,6 +1108,10 @@
     }
 
 
+    /* =====================================================
+       CONTACT / ABOUT / COMMANDE
+       ===================================================== */
+
     .contact-grid,
     .about-grid,
     .panier-layout,
@@ -997,6 +1119,10 @@
         grid-template-columns: 1fr !important;
     }
 
+
+    /* =====================================================
+       MENU MOBILE
+       ===================================================== */
 
     .menu-layout {
         height: auto;
@@ -1011,11 +1137,12 @@
         flex-direction: row;
         overflow-x: auto;
         overflow-y: hidden;
-        padding: 10px 12px;
-        gap: 6px;
+        padding: 10px 12px 12px;
+        gap: 8px;
         border-right: none;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
+        scroll-padding-left: 12px;
     }
 
     .cat-sidebar::-webkit-scrollbar {
@@ -1025,6 +1152,8 @@
     .cat-btn {
         flex: 0 0 auto;
         white-space: nowrap;
+        padding: 8px 14px;
+        font-size: 13px;
     }
 
     .sidebar-title,
@@ -1063,6 +1192,9 @@
     }
 
 
+    /* =====================================================
+       PANIER
+       ===================================================== */
 
     .panier-item {
         width: 100%;
@@ -1092,6 +1224,9 @@
     }
 
 
+    /* =====================================================
+       ADMIN
+       ===================================================== */
 
     .admin-main-content {
         width: 100%;
@@ -1143,6 +1278,9 @@
     }
 
 
+    /* =====================================================
+       TABLEAUX ADMIN
+       ===================================================== */
 
     .table-wrapper,
     .table-responsive {
@@ -1156,6 +1294,10 @@
         min-width: 600px;
     }
 
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
     .footer {
         width: 100%;
@@ -1175,40 +1317,63 @@
         gap: 10px;
     }
 
+
+    /* =====================================================
+       BOTTOM NAV
+       ===================================================== */
+
     .bottom-nav {
         position: fixed;
         left: 0;
         right: 0;
         bottom: 0;
-
         width: 100%;
         max-width: 100%;
-        min-height: 64px;
-
+        height: calc(60px + env(safe-area-inset-bottom, 0px));
         display: flex !important;
         align-items: stretch;
         justify-content: space-around;
-
-        padding:
-            7px 8px
-            calc(7px + env(safe-area-inset-bottom));
-
+        padding: 6px 6px calc(6px + env(safe-area-inset-bottom, 0px));
+        background: var(--nav-bg, #0a0a0a);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
         z-index: 2000;
         overflow: hidden;
     }
 
     .bottom-nav-item {
+        position: relative;
         flex: 1 1 0;
         min-width: 0;
-
+        min-height: 54px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
-        gap: 3px;
+        gap: 2px;
+        color: #888;
+        font-size: 10px;
+        font-weight: 500;
         text-align: center;
         white-space: nowrap;
+        cursor: pointer;
+        transition: color .25s ease, transform .2s ease;
+    }
+
+    .bottom-nav-item i {
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    .bottom-nav-item.active,
+    .bottom-nav-item.active i {
+        color: var(--brand-gold, #d4af37);
+    }
+
+    .bottom-nav-item:active {
+        transform: scale(0.94);
     }
 
     .bottom-nav-item span {
@@ -1217,7 +1382,33 @@
         text-overflow: ellipsis;
     }
 
+    /* Badge panier */
+    .bottom-nav-item .cart-dot {
+        position: absolute;
+        top: 4px;
+        left: 50%;
+        margin-left: 8px;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--brand-gold, #d4af37);
+        color: #000;
+        font-size: 8px;
+        font-weight: 700;
+        border-radius: 50%;
+        pointer-events: none;
+    }
 
+    .bottom-nav-item .cart-dot.hidden {
+        display: none;
+    }
+
+
+    /* =====================================================
+       LIGHTBOX & MODALES
+       ===================================================== */
 
     .lightbox {
         padding: 16px;
@@ -1235,13 +1426,17 @@
         right: 14px;
     }
 
-
     .modal,
     .modal-content,
     .dialog {
         width: auto;
         max-width: calc(100vw - 28px);
     }
+
+
+    /* =====================================================
+       SÉCURITÉ CONTRE DÉBORDEMENT
+       ===================================================== */
 
     section,
     main,
@@ -1250,22 +1445,21 @@
         max-width: 100%;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    p {
+    h1, h2, h3, h4, p {
         max-width: 100%;
         overflow-wrap: break-word;
     }
 
-    pre,
-    code {
+    pre, code {
         max-width: 100%;
         overflow-x: auto;
     }
 }
 
+
+/* =========================================================
+   2. PETITS TÉLÉPHONES (320px → 374px)
+   ========================================================= */
 
 @media (max-width: 374px) {
 
@@ -1306,15 +1500,30 @@
     }
 
     .bottom-nav {
-        min-height: 60px;
+        height: calc(56px + env(safe-area-inset-bottom, 0px));
     }
 
     .bottom-nav-item {
-        font-size: 11px;
+        font-size: 9px;
+        min-height: 50px;
+    }
+
+    .bottom-nav-item i {
+        font-size: 18px;
+    }
+
+    .cat-btn {
+        font-size: 12px;
+        padding: 7px 12px;
     }
 }
 
-@media (min-width:375px) and (max-width:430px) {
+
+/* =========================================================
+   3. SMARTPHONES STANDARD (375px → 430px)
+   ========================================================= */
+
+@media (min-width: 375px) and (max-width: 430px) {
 
     .hero-img-frame,
     .hero-image-frame {
@@ -1326,7 +1535,12 @@
     }
 }
 
-@media (min-width:431px) and (max-width:600px) {
+
+/* =========================================================
+   4. GRANDS SMARTPHONES (431px → 600px)
+   ========================================================= */
+
+@media (min-width: 431px) and (max-width: 600px) {
 
     .container {
         padding-left: 20px;
@@ -1342,17 +1556,20 @@
         font-size: 42px;
     }
 
-    .plats-grid {
+    .plats-grid,
+    .signatures-grid,
+    .features-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 14px;
     }
-
-    .features-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    }
 }
 
-@media (min-width:601px) and (max-width:768px) {
+
+/* =========================================================
+   5. TABLETTE PORTRAIT (601px → 768px)
+   ========================================================= */
+
+@media (min-width: 601px) and (max-width: 768px) {
 
     .container {
         padding-left: 24px;
@@ -1369,13 +1586,19 @@
     }
 
     .plats-grid,
+    .signatures-grid,
     .features-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 18px;
     }
 }
 
-@media (max-width:768px) and (orientation:landscape) {
+
+/* =========================================================
+   6. MOBILE LANDSCAPE
+   ========================================================= */
+
+@media (max-width: 768px) and (orientation: landscape) {
 
     .hero-img-frame,
     .hero-image-frame {
@@ -1383,11 +1606,24 @@
     }
 
     .bottom-nav {
-        min-height: 56px;
+        height: calc(52px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .bottom-nav-item {
+        min-height: 48px;
+    }
+
+    .bottom-nav-item i {
+        font-size: 17px;
     }
 }
 
-@media (min-width:769px) and (max-width:1024px) {
+
+/* =========================================================
+   7. TABLETTE (769px → 1024px)
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
 
     .plats-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -1405,7 +1641,8 @@
         font-size: 42px;
     }
 
-    .hero-img-frame img {
+    .hero-img-frame img,
+    .hero-image-frame img {
         height: 350px;
         object-fit: cover;
     }
@@ -1415,7 +1652,12 @@
     }
 }
 
-@media (min-width:1025px) {
+
+/* =========================================================
+   8. DESKTOP (1025px+)
+   ========================================================= */
+
+@media (min-width: 1025px) {
 
     .plats-grid {
         grid-template-columns: repeat(4, 1fr);
@@ -1429,13 +1671,19 @@
         font-size: 52px;
     }
 
-    .hero-img-frame img {
+    .hero-img-frame img,
+    .hero-image-frame img {
         height: 450px;
         object-fit: cover;
     }
+}
 
 
-@media (min-width:769px) {
+/* =========================================================
+   9. FOOTER DESKTOP + CACHE BOTTOM-NAV
+   ========================================================= */
+
+@media (min-width: 769px) {
 
     .footer {
         display: block;
@@ -1443,6 +1691,19 @@
     }
 
     .bottom-nav {
+        display: none !important;
+    }
+
+    /* On s’assure que les liens desktop sont visibles */
+    .nav-links,
+    .navbar-links,
+    .desktop-nav {
+        display: flex !important;
+    }
+
+    .nav-toggle,
+    .hamburger,
+    .menu-toggle {
         display: none !important;
     }
 }
