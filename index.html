@@ -768,16 +768,6 @@
         .admin-overlay { position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:999; display:none; }
         .admin-overlay.show { display:block; }
 
-/* =========================================================
-   KOKI'S BY JUJU
-   RESPONSIVE SYSTEM — CLEAN, FIXED & OPTIMIZED
-   320px → Desktop
-   ========================================================= */
-
-
-/* =========================================================
-   1. GLOBAL MOBILE SAFETY (≤ 768px)
-   ========================================================= */
 
 @media (max-width: 768px) {
 
@@ -828,16 +818,15 @@
         touch-action: manipulation;
     }
 
+
     .container {
         width: 100%;
         max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: clamp(12px, 4vw, 24px);
-        padding-right: clamp(12px, 4vw, 24px);
+        margin-inline: auto;
+        padding-inline: clamp(12px, 4vw, 24px);
     }
 
-    /* Typographie */
+
     .hero-title {
         font-size: clamp(32px, 9vw, 48px);
         line-height: 1.06;
@@ -856,10 +845,11 @@
         line-height: 1.55;
     }
 
-    /* ---------- NAVBAR ---------- */
     .navbar {
         width: 100%;
         max-width: 100%;
+        position: relative;
+        z-index: 3000;
         overflow: visible;
     }
 
@@ -867,92 +857,227 @@
     .navbar-container {
         width: 100%;
         max-width: 100%;
-        padding-left: 14px;
-        padding-right: 14px;
-        height: 62px;
+        min-width: 0;
+
+        height: 86px;
+
+        padding-inline: clamp(10px, 3.5vw, 20px);
+
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        gap: 8px;
+
+        overflow: visible;
+    }
+
+
+    .nav-logo,
+    .navbar-logo {
+        flex: 0 1 auto;
+        min-width: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     .nav-logo img,
     .navbar-logo img {
-        max-width: 150px;
+        display: block;
+
+        width: auto;
         height: auto;
+
+        max-width: clamp(100px, 31vw, 150px);
+        max-height: 58px;
+
+        object-fit: contain;
+    }
+
+    .nav-actions,
+    .navbar-actions,
+    .header-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        gap: clamp(5px, 1.8vw, 10px);
+
+        flex: 0 0 auto;
+        min-width: 0;
+    }
+
+
+    .theme-toggle,
+    .theme-btn,
+    #themeToggle {
+
+        width: 42px;
+        height: 42px;
+
+        min-width: 42px;
+        min-height: 42px;
+
+        padding: 0;
+
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid rgba(212, 175, 55, .55);
+        border-radius: 50%;
+
+        background: transparent;
+        color: var(--brand-gold, #d4af37);
+
+        cursor: pointer;
+        flex-shrink: 0;
+
+        transition:
+            transform .2s ease,
+            background .2s ease,
+            border-color .2s ease;
+    }
+
+    .theme-toggle:hover,
+    .theme-btn:hover,
+    #themeToggle:hover {
+        background: rgba(212, 175, 55, .10);
+        border-color: #d4af37;
+    }
+
+    .theme-toggle:active,
+    .theme-btn:active,
+    #themeToggle:active {
+        transform: scale(.94);
+    }
+
+
+    .nav-order-btn,
+    .navbar-order-btn,
+    .btn-commander,
+    .commander-btn {
+
+        height: 48px;
+        min-height: 48px;
+
+        padding-inline: clamp(12px, 3.5vw, 22px);
+
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+
+        gap: 7px;
+
+        border: 1px solid rgba(212, 175, 55, .75);
+        border-radius: 12px;
+
+        background: transparent;
+        color: var(--brand-gold, #d4af37);
+
+        font-size: clamp(12px, 3.4vw, 16px);
+        font-weight: 600;
+
+        line-height: 1;
+        white-space: nowrap;
+        text-decoration: none;
+
+        flex-shrink: 1;
+
+        transition:
+            background .2s ease,
+            transform .2s ease;
+    }
+
+    .nav-order-btn:hover,
+    .navbar-order-btn:hover,
+    .btn-commander:hover,
+    .commander-btn:hover {
+        background: rgba(212, 175, 55, .08);
+    }
+
+    .nav-order-btn:active,
+    .navbar-order-btn:active,
+    .btn-commander:active,
+    .commander-btn:active {
+        transform: scale(.97);
+    }
+
+
+    .contact-header-btn,
+    .header-contact-btn,
+    .nav-contact-btn {
+
+        width: 42px;
+        height: 42px;
+
+        min-width: 42px;
+        min-height: 42px;
+
+        padding: 0;
+
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid rgba(212, 175, 55, .55);
+        border-radius: 50%;
+
+        background: transparent;
+        color: var(--brand-gold, #d4af37);
+
+        text-decoration: none;
+
+        flex-shrink: 0;
+
+        transition:
+            background .2s ease,
+            transform .2s ease;
+    }
+
+    .contact-header-btn i,
+    .header-contact-btn i,
+    .nav-contact-btn i {
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    .contact-header-btn:hover,
+    .header-contact-btn:hover,
+    .nav-contact-btn:hover {
+        background: rgba(212, 175, 55, .10);
+    }
+
+    .contact-header-btn:active,
+    .header-contact-btn:active,
+    .nav-contact-btn:active {
+        transform: scale(.94);
+    }
+
+
+    .nav-toggle,
+    .hamburger,
+    .menu-toggle {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
     }
 
     .nav-links,
     .navbar-links,
     .desktop-nav,
     .mobile-nav {
-        display: none;
+        display: none !important;
     }
 
-    .nav-toggle,
-    .hamburger,
-    .menu-toggle {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-        width: 28px;
-        height: 28px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-    }
 
-    .nav-toggle span,
-    .hamburger span,
-    .menu-toggle span {
-        display: block;
-        width: 100%;
-        height: 2px;
-        background: #fff;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-    }
-
-    .nav-links.open,
-    .navbar-links.open,
-    .mobile-nav.open {
-        display: flex !important;
-        flex-direction: column;
-        position: absolute;
-        top: 62px;
-        left: 0;
-        right: 0;
-        background: #0a0a0a;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 16px 14px 24px;
-        gap: 4px;
-        z-index: 999;
-    }
-
-    .nav-links.open a,
-    .navbar-links.open a,
-    .mobile-nav.open a {
-        display: block;
-        padding: 13px 12px;
-        font-size: 16px;
-        border-radius: 10px;
-        color: #fff;
-        text-decoration: none;
-    }
-
-    .nav-links.open a:hover,
-    .navbar-links.open a:hover,
-    .mobile-nav.open a:hover {
-        background: rgba(212, 175, 55, 0.12);
-        color: #d4af37;
-    }
-
-    /* ---------- HERO ---------- */
     .hero {
         width: 100%;
         max-width: 100%;
         overflow: hidden;
+
         padding-top: 12px;
         padding-bottom: 32px;
     }
@@ -960,9 +1085,12 @@
     .hero-content {
         width: 100%;
         max-width: 100%;
+
         display: flex;
         flex-direction: column;
+
         gap: 20px;
+
         min-width: 0;
     }
 
@@ -970,45 +1098,63 @@
     .hero-image-frame {
         width: 100%;
         max-width: 100%;
+
         height: clamp(220px, 58vw, 340px);
+
         overflow: hidden;
-        border-radius: 18px;
         position: relative;
+
+        border-radius: 18px;
     }
 
     .hero-img-frame img,
     .hero-image-frame img {
         width: 100%;
         height: 100%;
+
         object-fit: cover;
     }
 
     .location-badge {
         display: inline-flex;
         align-items: center;
+
         gap: 6px;
-        background: rgba(212, 175, 55, 0.12);
-        border: 1px solid rgba(212, 175, 55, 0.25);
+
+        background: rgba(212, 175, 55, .12);
+        border: 1px solid rgba(212, 175, 55, .25);
+
         color: #d4af37;
+
         font-size: 12px;
         font-weight: 500;
+
         padding: 6px 14px;
+
         border-radius: 100px;
         margin-bottom: 14px;
     }
 
     .hero-badge {
         position: absolute;
-        background: rgba(0, 0, 0, 0.75);
+
+        background: rgba(0, 0, 0, .75);
         backdrop-filter: blur(8px);
-        border: 1px solid rgba(212, 175, 55, 0.4);
+
+        border: 1px solid rgba(212, 175, 55, .4);
+
         color: #d4af37;
+
         font-size: 11px;
         font-weight: 600;
+
         padding: 7px 12px;
+
         border-radius: 100px;
+
         display: flex;
         align-items: center;
+
         gap: 5px;
     }
 
@@ -1036,7 +1182,9 @@
     .h-stat .n {
         font-size: clamp(20px, 6vw, 28px);
         font-weight: 700;
+
         color: #d4af37;
+
         display: block;
         line-height: 1.1;
     }
@@ -1044,8 +1192,9 @@
     .h-stat .l {
         font-size: 10px;
         color: #999;
+
         text-transform: uppercase;
-        letter-spacing: 0.4px;
+        letter-spacing: .4px;
     }
 
     .hero-actions {
@@ -1059,15 +1208,19 @@
         min-height: 46px;
     }
 
-    /* ---------- FEATURES / AVANTAGES ---------- */
     .features-grid,
     .avantages-grid,
     .benefits-row {
         display: grid !important;
-        grid-template-columns: repeat(4, 1fr);
+
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+
         gap: 10px;
+
         width: 100%;
+
         padding: 8px 0 4px;
+
         min-width: 0;
     }
 
@@ -1075,10 +1228,14 @@
     .avantage-item,
     .benefit-item {
         display: flex;
+
         flex-direction: column;
         align-items: center;
+
         text-align: center;
+
         gap: 8px;
+
         min-width: 0;
     }
 
@@ -1087,32 +1244,42 @@
     .feature-icon {
         width: 44px;
         height: 44px;
+
+        flex-shrink: 0;
+
         border-radius: 12px;
-        background: rgba(212, 175, 55, 0.1);
+
+        background: rgba(212, 175, 55, .1);
+
         display: flex;
         align-items: center;
         justify-content: center;
+
         font-size: 20px;
         color: #d4af37;
-        flex-shrink: 0;
     }
 
     .feature-item span,
     .feature-item p,
     .avantage-item span,
     .avantage-item p {
+        max-width: 100%;
+
         font-size: 11px !important;
         line-height: 1.3 !important;
+
         font-weight: 500;
+
         color: #e5e5e5;
+
         white-space: normal !important;
+
         overflow: visible !important;
         text-overflow: unset !important;
+
         word-break: break-word;
-        max-width: 100%;
     }
 
-    /* ---------- GRILLES & CARTES ---------- */
     .admin-layout,
     .charts-grid,
     .settings-grid,
@@ -1124,8 +1291,11 @@
     .signatures-grid,
     .vedettes-grid {
         display: grid !important;
+
         grid-template-columns: 1fr !important;
+
         gap: 16px;
+
         min-width: 0;
     }
 
@@ -1141,18 +1311,21 @@
     .plat-img {
         width: 100%;
         height: clamp(150px, 42vw, 220px);
+
         overflow: hidden;
     }
 
     .plat-img img {
         width: 100%;
         height: 100%;
+
         object-fit: cover;
     }
 
-    /* ---------- EVENTS ---------- */
     .ev-card {
+        display: grid;
         grid-template-columns: 1fr !important;
+
         width: 100%;
         max-width: 100%;
     }
@@ -1168,12 +1341,14 @@
 
     .ev-img-wrap img {
         width: 100%;
+
         min-height: 160px;
         max-height: 280px;
+
         object-fit: cover;
     }
 
-    /* ---------- FORMULAIRES ---------- */
+
     .form-row {
         grid-template-columns: 1fr !important;
         gap: 12px;
@@ -1198,25 +1373,39 @@
         grid-template-columns: 1fr !important;
     }
 
-    /* ---------- MENU ---------- */
+
     .menu-layout {
+        width: 100%;
+
         height: auto;
         min-height: 0;
+
         display: flex;
         flex-direction: column;
+
+        min-width: 0;
     }
 
     .cat-sidebar {
         width: 100%;
         max-width: 100%;
+
+        display: flex;
         flex-direction: row;
+
         overflow-x: auto;
         overflow-y: hidden;
+
         padding: 10px 12px 12px;
+
         gap: 8px;
+
         border-right: none;
+
         -webkit-overflow-scrolling: touch;
+
         scrollbar-width: none;
+
         scroll-padding-left: 12px;
     }
 
@@ -1226,8 +1415,11 @@
 
     .cat-btn {
         flex: 0 0 auto;
+
         white-space: nowrap;
+
         padding: 8px 14px;
+
         font-size: 13px;
     }
 
@@ -1238,21 +1430,27 @@
     }
 
     .plat-row {
+        width: 100%;
+
         display: flex;
         flex-wrap: wrap;
+
         gap: 10px;
-        width: 100%;
+
+        min-width: 0;
     }
 
     .plat-row-img {
         width: 60px;
         height: 60px;
+
         flex: 0 0 60px;
     }
 
     .plat-row-img img {
         width: 100%;
         height: 100%;
+
         object-fit: cover;
     }
 
@@ -1266,48 +1464,65 @@
         min-height: 44px;
     }
 
-    /* ---------- PANIER ---------- */
+
     .panier-item {
         width: 100%;
-        grid-template-columns: 60px minmax(0, 1fr) auto !important;
+
+        display: grid;
+
+        grid-template-columns:
+            60px
+            minmax(0, 1fr)
+            auto !important;
+
         gap: 10px;
+
         min-width: 0;
     }
 
     .pi-img {
         width: 60px;
         height: 60px;
+
         flex-shrink: 0;
     }
 
     .pi-img img {
         width: 100%;
         height: 100%;
+
         object-fit: cover;
     }
 
     .pi-right {
         min-width: 0;
+
         display: flex;
+
         flex-direction: row;
+
         align-items: center;
         justify-content: space-between;
+
         gap: 8px;
     }
 
-    /* ---------- ADMIN ---------- */
     .admin-main-content {
         width: 100%;
         max-width: 100%;
+
         padding-left: clamp(14px, 4vw, 20px);
         padding-right: clamp(14px, 4vw, 20px);
-        padding-bottom: 30px; /* plus besoin de 90px car bottom-nav masquée */
+
+        padding-bottom: 30px;
+
         min-width: 0;
     }
 
     .admin-main {
         width: 100%;
         max-width: 100%;
+
         margin: 0;
     }
 
@@ -1318,16 +1533,22 @@
 
     .admin-sidebar {
         position: fixed !important;
+
         top: 0;
         bottom: 0;
         left: -280px;
+
         width: min(280px, 85vw);
         max-width: 85vw;
-        height: 100dvh;          /* prioritaire */
-        height: 100vh;           /* fallback */
+
+        height: 100dvh;
+        height: 100vh;
+
         z-index: 1000;
+
         overflow-x: hidden;
         overflow-y: auto;
+
         transition: left .3s ease;
     }
 
@@ -1337,8 +1558,10 @@
 
     .admin-overlay {
         display: none;
+
         position: fixed;
         inset: 0;
+
         z-index: 999;
     }
 
@@ -1350,7 +1573,9 @@
     .table-responsive {
         width: 100%;
         max-width: 100%;
+
         overflow-x: auto;
+
         -webkit-overflow-scrolling: touch;
     }
 
@@ -1358,11 +1583,12 @@
         min-width: 600px;
     }
 
-    /* ---------- FOOTER ---------- */
     .footer {
         width: 100%;
         max-width: 100%;
+
         overflow: hidden;
+
         padding-bottom: 90px;
     }
 
@@ -1373,49 +1599,85 @@
 
     .footer-bottom {
         flex-direction: column;
+
         align-items: flex-start;
+
         gap: 10px;
     }
 
-    /* ---------- BOTTOM NAV ---------- */
     .bottom-nav {
         position: fixed;
+
         left: 0;
         right: 0;
         bottom: 0;
+
         width: 100%;
         max-width: 100%;
-        height: calc(60px + env(safe-area-inset-bottom, 0px));
+
+        height:
+            calc(
+                60px +
+                env(safe-area-inset-bottom, 0px)
+            );
+
         display: flex !important;
+
         align-items: stretch;
         justify-content: space-around;
-        padding: 6px 6px calc(6px + env(safe-area-inset-bottom, 0px));
+
+        padding:
+            6px
+            6px
+            calc(6px + env(safe-area-inset-bottom, 0px));
+
         background: var(--nav-bg, #0a0a0a);
+
         backdrop-filter: blur(30px);
         -webkit-backdrop-filter: blur(30px);
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+
+        border-top:
+            1px solid rgba(255, 255, 255, .08);
+
+        box-shadow:
+            0 -4px 12px rgba(0, 0, 0, .15);
+
         z-index: 2000;
+
         overflow: hidden;
     }
 
     .bottom-nav-item {
         position: relative;
+
         flex: 1 1 0;
+
         min-width: 0;
         min-height: 48px;
+
         display: flex;
+
         flex-direction: column;
+
         align-items: center;
         justify-content: center;
+
         gap: 2px;
+
         color: #888;
+
         font-size: 10px;
         font-weight: 500;
+
         text-align: center;
+
         white-space: nowrap;
+
         cursor: pointer;
-        transition: color .25s ease, transform .2s ease;
+
+        transition:
+            color .25s ease,
+            transform .2s ease;
     }
 
     .bottom-nav-item i {
@@ -1429,30 +1691,41 @@
     }
 
     .bottom-nav-item:active {
-        transform: scale(0.94);
+        transform: scale(.94);
     }
 
     .bottom-nav-item span {
         max-width: 100%;
+
         overflow: hidden;
+
         text-overflow: ellipsis;
     }
 
     .bottom-nav-item .cart-dot {
         position: absolute;
+
         top: 4px;
         left: 50%;
+
         margin-left: 8px;
+
         width: 16px;
         height: 16px;
+
         display: flex;
         align-items: center;
         justify-content: center;
+
         background: var(--brand-gold, #d4af37);
+
         color: #000;
+
         font-size: 8px;
         font-weight: 700;
+
         border-radius: 50%;
+
         pointer-events: none;
     }
 
@@ -1460,24 +1733,35 @@
         display: none;
     }
 
-    /* ---------- MASQUER BOTTOM-NAV SUR ADMIN ---------- */
+
     body.admin-page .bottom-nav,
     .admin-page .bottom-nav,
     .admin-layout .bottom-nav,
     .admin-main .bottom-nav,
-    body[class*="admin"] .bottom-nav {
+    body[class*="admin"] .bottom-nav,
+    [class*="admin"] .bottom-nav {
         display: none !important;
+
+        visibility: hidden !important;
+
+        height: 0 !important;
+
+        overflow: hidden !important;
+
+        pointer-events: none !important;
     }
 
-    /* ---------- MODALES ---------- */
+
     .lightbox {
         padding: 16px;
     }
 
     .lightbox img {
         width: auto;
+
         max-width: 94vw;
         max-height: 82vh;
+
         object-fit: contain;
     }
 
@@ -1490,8 +1774,11 @@
     .modal-content,
     .dialog {
         width: auto;
-        max-width: calc(100vw - 28px);
+
+        max-width:
+            calc(100vw - 28px);
     }
+
 
     section,
     main,
@@ -1500,28 +1787,76 @@
         max-width: 100%;
     }
 
-    h1, h2, h3, h4, p {
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
         max-width: 100%;
+
         overflow-wrap: break-word;
     }
 
-    pre, code {
+    pre,
+    code {
         max-width: 100%;
         overflow-x: auto;
     }
 }
 
 
-/* =========================================================
-   2. TRÈS PETITS TÉLÉPHONES (≤ 400px)
-   ========================================================= */
-
-@media (max-width: 400px) {
+@media (max-width: 374px) {
 
     .container {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-inline: 12px;
     }
+
+    .nav-container,
+    .navbar-container {
+        height: 78px;
+        padding-inline: 10px;
+        gap: 5px;
+    }
+
+    .nav-logo img,
+    .navbar-logo img {
+        max-width: 100px;
+        max-height: 48px;
+    }
+
+    .nav-actions,
+    .navbar-actions,
+    .header-actions {
+        gap: 5px;
+    }
+
+    .theme-toggle,
+    .theme-btn,
+    #themeToggle,
+    .contact-header-btn,
+    .header-contact-btn,
+    .nav-contact-btn {
+        width: 38px;
+        height: 38px;
+
+        min-width: 38px;
+        min-height: 38px;
+    }
+
+    .nav-order-btn,
+    .navbar-order-btn,
+    .btn-commander,
+    .commander-btn {
+        height: 42px;
+        min-height: 42px;
+
+        padding-inline: 9px;
+
+        font-size: 12px;
+
+        border-radius: 10px;
+    }
+
 
     .hero-title {
         font-size: 30px;
@@ -1554,7 +1889,6 @@
         font-size: 20px;
     }
 
-    /* Features → 2 colonnes plus aérées */
     .features-grid,
     .avantages-grid,
     .benefits-row {
@@ -1571,7 +1905,11 @@
     }
 
     .bottom-nav {
-        height: calc(56px + env(safe-area-inset-bottom, 0px));
+        height:
+            calc(
+                56px +
+                env(safe-area-inset-bottom, 0px)
+            );
     }
 
     .bottom-nav-item {
@@ -1588,12 +1926,7 @@
         padding: 7px 12px;
     }
 }
-
-
-/* =========================================================
-   3. SMARTPHONES STANDARD (375px → 430px)
-   ========================================================= */
-
+        
 @media (min-width: 375px) and (max-width: 430px) {
 
     .hero-img-frame,
@@ -1604,18 +1937,59 @@
     .hero-title {
         font-size: clamp(32px, 9vw, 38px);
     }
+
+    .nav-logo img,
+    .navbar-logo img {
+        max-width: 115px;
+    }
+
+    .nav-order-btn,
+    .navbar-order-btn,
+    .btn-commander,
+    .commander-btn {
+        padding-inline: 13px;
+    }
 }
 
-
-/* =========================================================
-   4. GRANDS SMARTPHONES (431px → 600px)
-   ========================================================= */
 
 @media (min-width: 431px) and (max-width: 600px) {
 
     .container {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-inline: 20px;
+    }
+
+    .nav-container,
+    .navbar-container {
+        height: 90px;
+        padding-inline: 18px;
+    }
+
+    .nav-logo img,
+    .navbar-logo img {
+        max-width: 140px;
+    }
+
+    .theme-toggle,
+    .theme-btn,
+    #themeToggle,
+    .contact-header-btn,
+    .header-contact-btn,
+    .nav-contact-btn {
+        width: 44px;
+        height: 44px;
+
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .nav-order-btn,
+    .navbar-order-btn,
+    .btn-commander,
+    .commander-btn {
+        height: 50px;
+        min-height: 50px;
+
+        padding-inline: 20px;
     }
 
     .hero-img-frame,
@@ -1630,21 +2004,52 @@
     .plats-grid,
     .signatures-grid,
     .features-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
         gap: 14px;
     }
 }
 
 
-/* =========================================================
-   5. TABLETTE PORTRAIT (601px → 768px)
-   ========================================================= */
-
 @media (min-width: 601px) and (max-width: 768px) {
 
     .container {
-        padding-left: 24px;
-        padding-right: 24px;
+        padding-inline: 24px;
+    }
+
+    .nav-container,
+    .navbar-container {
+        height: 94px;
+        padding-inline: 24px;
+    }
+
+    .nav-logo img,
+    .navbar-logo img {
+        max-width: 155px;
+    }
+
+    .theme-toggle,
+    .theme-btn,
+    #themeToggle,
+    .contact-header-btn,
+    .header-contact-btn,
+    .nav-contact-btn {
+        width: 46px;
+        height: 46px;
+
+        min-width: 46px;
+        min-height: 46px;
+    }
+
+    .nav-order-btn,
+    .navbar-order-btn,
+    .btn-commander,
+    .commander-btn {
+        height: 52px;
+        min-height: 52px;
+
+        padding-inline: 24px;
     }
 
     .hero-img-frame,
@@ -1659,17 +2064,25 @@
     .plats-grid,
     .signatures-grid,
     .features-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
         gap: 18px;
     }
 }
 
 
-/* =========================================================
-   6. MOBILE LANDSCAPE
-   ========================================================= */
-
 @media (max-width: 768px) and (orientation: landscape) {
+
+    .nav-container,
+    .navbar-container {
+        height: 68px;
+    }
+
+    .nav-logo img,
+    .navbar-logo img {
+        max-height: 45px;
+    }
 
     .hero-img-frame,
     .hero-image-frame {
@@ -1677,7 +2090,11 @@
     }
 
     .bottom-nav {
-        height: calc(52px + env(safe-area-inset-bottom, 0px));
+        height:
+            calc(
+                52px +
+                env(safe-area-inset-bottom, 0px)
+            );
     }
 
     .bottom-nav-item {
@@ -1688,11 +2105,6 @@
         font-size: 17px;
     }
 }
-
-
-/* =========================================================
-   7. TABLETTE (769px → 1024px)
-   ========================================================= */
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
@@ -1723,11 +2135,6 @@
     }
 }
 
-
-/* =========================================================
-   8. DESKTOP (1025px+)
-   ========================================================= */
-
 @media (min-width: 1025px) {
 
     .plats-grid {
@@ -1748,11 +2155,6 @@
         object-fit: cover;
     }
 }
-
-
-/* =========================================================
-   9. DESKTOP — CACHE BOTTOM-NAV + AFFICHE NAV DESKTOP
-   ========================================================= */
 
 @media (min-width: 769px) {
 
@@ -1777,7 +2179,7 @@
         display: none !important;
     }
 }
-        /* Masquer complètement la bottom-nav sur toutes les pages admin */
+
 body.admin-page .bottom-nav,
 .admin-page .bottom-nav,
 .admin-layout .bottom-nav,
@@ -1786,8 +2188,11 @@ body[class*="admin"] .bottom-nav,
 [class*="admin"] .bottom-nav {
     display: none !important;
     visibility: hidden !important;
+
     height: 0 !important;
+
     overflow: hidden !important;
+
     pointer-events: none !important;
 }
     </style>
