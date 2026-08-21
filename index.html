@@ -769,6 +769,17 @@
         .admin-overlay.show { display:block; }
 
 
+/* =========================================================
+   KOKI'S BY JUJU
+   RESPONSIVE SYSTEM — FINAL CLEAN VERSION
+   320px → Desktop
+   ========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL MOBILE SAFETY — ≤ 768px
+   ========================================================= */
+
 @media (max-width: 768px) {
 
     html {
@@ -819,6 +830,10 @@
     }
 
 
+    /* =====================================================
+       CONTAINER
+       ===================================================== */
+
     .container {
         width: 100%;
         max-width: 100%;
@@ -826,6 +841,10 @@
         padding-inline: clamp(12px, 4vw, 24px);
     }
 
+
+    /* =====================================================
+       TYPOGRAPHIE
+       ===================================================== */
 
     .hero-title {
         font-size: clamp(32px, 9vw, 48px);
@@ -844,6 +863,13 @@
         font-size: clamp(14px, 3.8vw, 17px);
         line-height: 1.55;
     }
+
+
+    /* =====================================================
+       HEADER / NAVBAR
+       MOBILE :
+       LOGO | THÈME | COMMANDER | CONTACT
+       ===================================================== */
 
     .navbar {
         width: 100%;
@@ -873,6 +899,8 @@
     }
 
 
+    /* ---------- LOGO ---------- */
+
     .nav-logo,
     .navbar-logo {
         flex: 0 1 auto;
@@ -896,6 +924,9 @@
         object-fit: contain;
     }
 
+
+    /* ---------- ACTIONS HEADER ---------- */
+
     .nav-actions,
     .navbar-actions,
     .header-actions {
@@ -909,6 +940,10 @@
         min-width: 0;
     }
 
+
+    /* =====================================================
+       BOUTON THÈME
+       ===================================================== */
 
     .theme-toggle,
     .theme-btn,
@@ -954,6 +989,10 @@
         transform: scale(.94);
     }
 
+
+    /* =====================================================
+       BOUTON COMMANDER
+       ===================================================== */
 
     .nav-order-btn,
     .navbar-order-btn,
@@ -1006,6 +1045,10 @@
     }
 
 
+    /* =====================================================
+       BOUTON CONTACT
+       ===================================================== */
+
     .contact-header-btn,
     .header-contact-btn,
     .nav-contact-btn {
@@ -1057,6 +1100,10 @@
     }
 
 
+    /* =====================================================
+       HAMBURGER → SUPPRIMÉ
+       ===================================================== */
+
     .nav-toggle,
     .hamburger,
     .menu-toggle {
@@ -1065,6 +1112,11 @@
         pointer-events: none !important;
     }
 
+
+    /* =====================================================
+       ANCIENS LIENS NAVIGATION MOBILE
+       ===================================================== */
+
     .nav-links,
     .navbar-links,
     .desktop-nav,
@@ -1072,6 +1124,10 @@
         display: none !important;
     }
 
+
+    /* =====================================================
+       HERO
+       ===================================================== */
 
     .hero {
         width: 100%;
@@ -1208,6 +1264,11 @@
         min-height: 46px;
     }
 
+
+    /* =====================================================
+       FEATURES
+       ===================================================== */
+
     .features-grid,
     .avantages-grid,
     .benefits-row {
@@ -1280,6 +1341,11 @@
         word-break: break-word;
     }
 
+
+    /* =====================================================
+       GRILLES
+       ===================================================== */
+
     .admin-layout,
     .charts-grid,
     .settings-grid,
@@ -1322,6 +1388,11 @@
         object-fit: cover;
     }
 
+
+    /* =====================================================
+       EVENTS
+       ===================================================== */
+
     .ev-card {
         display: grid;
         grid-template-columns: 1fr !important;
@@ -1349,6 +1420,10 @@
     }
 
 
+    /* =====================================================
+       FORMULAIRES
+       ===================================================== */
+
     .form-row {
         grid-template-columns: 1fr !important;
         gap: 12px;
@@ -1373,6 +1448,10 @@
         grid-template-columns: 1fr !important;
     }
 
+
+    /* =====================================================
+       MENU
+       ===================================================== */
 
     .menu-layout {
         width: 100%;
@@ -1465,6 +1544,10 @@
     }
 
 
+    /* =====================================================
+       PANIER
+       ===================================================== */
+
     .panier-item {
         width: 100%;
 
@@ -1507,6 +1590,11 @@
         gap: 8px;
     }
 
+
+    /* =====================================================
+       ADMIN
+       ===================================================== */
+
     .admin-main-content {
         width: 100%;
         max-width: 100%;
@@ -1544,7 +1632,7 @@
         height: 100dvh;
         height: 100vh;
 
-        z-index: 1000;
+        z-index: 4000;
 
         overflow-x: hidden;
         overflow-y: auto;
@@ -1562,7 +1650,7 @@
         position: fixed;
         inset: 0;
 
-        z-index: 999;
+        z-index: 3999;
     }
 
     .admin-overlay.show {
@@ -1582,6 +1670,11 @@
     table {
         min-width: 600px;
     }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
     .footer {
         width: 100%;
@@ -1604,6 +1697,11 @@
 
         gap: 10px;
     }
+
+
+    /* =====================================================
+       BOTTOM NAVIGATION — SITE CLIENT UNIQUEMENT
+       ===================================================== */
 
     .bottom-nav {
         position: fixed;
@@ -1734,23 +1832,52 @@
     }
 
 
+    /* =====================================================
+       ADMIN — PRIORITÉ ABSOLUE
+       BOTTOM NAVIGATION COMPLÈTEMENT SUPPRIMÉE
+       ===================================================== */
+
+    body:has(.admin-sidebar) .bottom-nav,
+    body:has(.admin-layout) .bottom-nav,
+    body:has(.admin-main) .bottom-nav,
+    body:has(.admin-main-content) .bottom-nav,
+
     body.admin-page .bottom-nav,
+    body.admin .bottom-nav,
     .admin-page .bottom-nav,
     .admin-layout .bottom-nav,
     .admin-main .bottom-nav,
+    .admin-main-content .bottom-nav,
+
     body[class*="admin"] .bottom-nav,
+    body[id*="admin"] .bottom-nav,
     [class*="admin"] .bottom-nav {
+
         display: none !important;
 
         visibility: hidden !important;
+        opacity: 0 !important;
 
+        position: absolute !important;
+
+        width: 0 !important;
         height: 0 !important;
+
+        min-width: 0 !important;
+        min-height: 0 !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
 
         overflow: hidden !important;
 
         pointer-events: none !important;
     }
 
+
+    /* =====================================================
+       MODALES
+       ===================================================== */
 
     .lightbox {
         padding: 16px;
@@ -1780,6 +1907,10 @@
     }
 
 
+    /* =====================================================
+       SÉCURITÉ CONTENU
+       ===================================================== */
+
     section,
     main,
     article,
@@ -1805,11 +1936,17 @@
 }
 
 
+/* =========================================================
+   2. TRÈS PETITS TÉLÉPHONES — ≤ 374px
+   ========================================================= */
+
 @media (max-width: 374px) {
 
     .container {
         padding-inline: 12px;
     }
+
+    /* HEADER */
 
     .nav-container,
     .navbar-container {
@@ -1857,6 +1994,8 @@
         border-radius: 10px;
     }
 
+
+    /* CONTENU */
 
     .hero-title {
         font-size: 30px;
@@ -1925,8 +2064,24 @@
         font-size: 12px;
         padding: 7px 12px;
     }
+
+
+    /* =====================================================
+       ADMIN — TOUJOURS AUCUNE BOTTOM NAV
+       ===================================================== */
+
+    body:has(.admin-sidebar) .bottom-nav,
+    body:has(.admin-layout) .bottom-nav,
+    body:has(.admin-main) .bottom-nav {
+        display: none !important;
+    }
 }
-        
+
+
+/* =========================================================
+   3. SMARTPHONES STANDARD — 375 → 430px
+   ========================================================= */
+
 @media (min-width: 375px) and (max-width: 430px) {
 
     .hero-img-frame,
@@ -1951,6 +2106,10 @@
     }
 }
 
+
+/* =========================================================
+   4. GRANDS SMARTPHONES — 431 → 600px
+   ========================================================= */
 
 @media (min-width: 431px) and (max-width: 600px) {
 
@@ -2012,6 +2171,10 @@
 }
 
 
+/* =========================================================
+   5. TABLETTE PORTRAIT — 601 → 768px
+   ========================================================= */
+
 @media (min-width: 601px) and (max-width: 768px) {
 
     .container {
@@ -2072,6 +2235,10 @@
 }
 
 
+/* =========================================================
+   6. MOBILE LANDSCAPE
+   ========================================================= */
+
 @media (max-width: 768px) and (orientation: landscape) {
 
     .nav-container,
@@ -2104,7 +2271,20 @@
     .bottom-nav-item i {
         font-size: 17px;
     }
+
+
+    /* ADMIN → NAVIGATION BASSE SUPPRIMÉE */
+    body:has(.admin-sidebar) .bottom-nav,
+    body:has(.admin-layout) .bottom-nav,
+    body:has(.admin-main) .bottom-nav {
+        display: none !important;
+    }
 }
+
+
+/* =========================================================
+   7. TABLETTE — 769 → 1024px
+   ========================================================= */
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
@@ -2135,6 +2315,11 @@
     }
 }
 
+
+/* =========================================================
+   8. DESKTOP — 1025px+
+   ========================================================= */
+
 @media (min-width: 1025px) {
 
     .plats-grid {
@@ -2155,6 +2340,11 @@
         object-fit: cover;
     }
 }
+
+
+/* =========================================================
+   9. DESKTOP NAVIGATION
+   ========================================================= */
 
 @media (min-width: 769px) {
 
@@ -2180,20 +2370,99 @@
     }
 }
 
+
+/* =========================================================
+   10. SÉCURITÉ ADMIN — TOUS ÉCRANS
+   ========================================================= */
+
+/*
+   IMPORTANT :
+   La Bottom Navigation est supprimée automatiquement
+   dès qu'un élément Admin est présent sur la page.
+
+   Cela fonctionne même si le <body> n'a pas :
+   class="admin-page"
+*/
+
+body:has(.admin-sidebar) .bottom-nav,
+body:has(.admin-layout) .bottom-nav,
+body:has(.admin-main) .bottom-nav,
+body:has(.admin-main-content) .bottom-nav,
+
 body.admin-page .bottom-nav,
+body.admin .bottom-nav,
 .admin-page .bottom-nav,
 .admin-layout .bottom-nav,
 .admin-main .bottom-nav,
-body[class*="admin"] .bottom-nav,
-[class*="admin"] .bottom-nav {
-    display: none !important;
-    visibility: hidden !important;
+.admin-main-content .bottom-nav,
 
+body[class*="admin"] .bottom-nav,
+body[id*="admin"] .bottom-nav,
+[class*="admin"] .bottom-nav {
+
+    display: none !important;
+
+    visibility: hidden !important;
+    opacity: 0 !important;
+
+    position: absolute !important;
+
+    width: 0 !important;
     height: 0 !important;
+
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
 
     overflow: hidden !important;
 
     pointer-events: none !important;
+}
+
+
+/* =========================================================
+   11. SÉCURITÉ SUPPLÉMENTAIRE ADMIN
+   ========================================================= */
+
+/* Empêche également le contenu Admin de réserver
+   inutilement de l'espace pour une navigation basse */
+
+body:has(.admin-sidebar) .footer,
+body:has(.admin-layout) .footer,
+body:has(.admin-main) .footer {
+    padding-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   12. ADMIN SIDEBAR — MOBILE PREMIUM
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    body:has(.admin-sidebar) {
+        overflow-x: hidden;
+    }
+
+    body:has(.admin-sidebar) .admin-sidebar {
+        max-width: 85vw;
+        width: min(280px, 85vw);
+
+        z-index: 4000;
+    }
+
+    body:has(.admin-sidebar) .admin-overlay {
+        z-index: 3999;
+    }
+
+    body:has(.admin-sidebar) .bottom-nav {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
 }
     </style>
 </head>
